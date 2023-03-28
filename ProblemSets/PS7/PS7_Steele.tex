@@ -1,0 +1,37 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+\usepackage{siunitx}
+
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{float}
+\title{PS7}
+\author{Colton Steele}
+
+\begin{document}
+\maketitle
+
+
+\section{Answers}
+
+Number 6:
+1/4 of the observations do not have a value for logwage. In looking through the data, it does not seem like there is any relationship between the missing values and any of the other variables in our dataset. Given that in the question, you listed that the data is only for women that were working, the absence of zeroes in our data makes sense so I would say that this data is missing at random as I can't thing of an endogenous choice that would affect the missingness of our data.
+\input{summary}
+
+Number 7: It appears that my estimated beta coefficeint for hgc for all of my models is slightly less than the true value you stated the true value was. As we'd expect, the coefficient for the complete cases and predicted models are the same just with smaller standard errors as we have a larger sample size. The mean has the smallest coefficient which indicates that our predicted values are, on average, larger than the average. The Mice method gave us a value closer to the complete cases and predicted model, but slightly smaller in magnitude. Overall, this exercise shows that even though we can do our best to impute data, missing data is a problem and will oftentimes prevent us from getting the true values.
+
+\input{models}
+
+Number 8: As of now, I have not made significant progress on my project. As I mentioned in the last problem set, for my project, I would like to create an elo system for NCAA softball using the softballR package. To do this, I plan to initialize my system at the start of the 2021-2022 season, then run the entire season's data and have the endpoints from last season be my starting point for this year and update each team's elo rating through the most recent time this year. Then, I want to use that rating system to predict which teams have the highest probabilities of making the Women's College World Series. I have searched and have not found anyone that has created a softball elo rating system so I think it would be a worthwhile and interesting endeavor.
+
+\end{document}
