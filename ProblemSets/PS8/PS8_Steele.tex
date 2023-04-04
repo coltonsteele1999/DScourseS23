@@ -1,0 +1,32 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+\usepackage{siunitx}
+
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{float}
+\title{PS7}
+\author{Colton Steele}
+
+\begin{document}
+\maketitle
+
+
+\section{Answers}
+
+In the questions 5-9, we calculated the beta hats for this model using various optimization algorithms. In each of them, the coefficients were all very close to the true values that were used earlier to create the data. They all were within roughly 0.01 or better of the true values. The estimated values for L-BFGS and Nelder-Mead were the exact same.
+
+\input{modelsummary}
+
+
+\end{document}
