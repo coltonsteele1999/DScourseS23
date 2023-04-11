@@ -1,0 +1,35 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+\usepackage{siunitx}
+
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{float}
+\title{PS9}
+\author{Colton Steele}
+
+\begin{document}
+\maketitle
+
+
+\section{Answers}
+
+Question 7: In this step, we created the recipe for our model, and our housing-train has dimensions of 354 by 14, but our housing-train-prepped is 354 by 75, meaning we have 61 more x variables in our prepped data than we did in our original housing data.\\
+
+Question 8: The optimal lambda for our Lasso model is 0.001389495. The RMSE for out of sample is 0.181 while for the in sample it is 0.0638.\\
+
+Question 9: The optimal lambda for our Ridge model is 0.02329952. The RMSE for out of sample is 0.183 while for the in sample it is 0.0721.\\
+
+Question 10: In terms of completing an OLS regression with more columns than rows, it is not a good idea to do this as the coefficients are often unreliable because you have more predictors than observations. Regarding the bias-variance tradeoff, it would seem that our models have fairly strong fits and are balanced in the bias-variance tradeoff. The RMSE's are all fairly low and the out of sample RMSE is slightly higher than the in sample which we would expect. Overall, the Lasso model appears to be a better fit for the data as both RMSE's are lower. 
+
+\end{document}
