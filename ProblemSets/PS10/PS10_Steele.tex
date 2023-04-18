@@ -1,0 +1,93 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+\usepackage{siunitx}
+
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{float}
+\title{PS10}
+\author{Colton Steele}
+
+\begin{document}
+\maketitle
+
+
+\section{Answers}
+Overall, the models all seemed to be fairly close to one another with the smallest accuracy being 0.83 and the largest being 0.87 with that value belonging to our tree model and the lowest accuracy belonging to our neural network. Sadly, I could not get my SVM model to run (it ran for almost an hour straight and never finished, and I began to worry about my computer truthfully). I'm not sure if it's something I did wrong in my code or what.
+\begin{table}[ht]
+\centering
+\caption{Logit Model}
+\begin{tabular}[t]{lll}
+\toprule
+penalty & .estimate & alg\\
+\midrule
+0.00 & 0.85 & logit\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[ht]
+\centering
+\caption{Tree Model}
+\begin{tabular}[t]{lll}
+\toprule
+penalty & .estimate & alg\\
+\midrule
+0.00 & 0.87 & tree\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{Neural Network}
+\begin{tabular}[t]{llll}
+\toprule
+hidden units & penalty & .estimate & alg\\
+\midrule
+1.00 & 1.00 & 0.83 & nnet\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{K Nearest Neighbors}
+\begin{tabular}[t]{lll}
+\toprule
+neighbors & .estimate & alg\\
+\midrule
+30.00 & 0.84 & kknn\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{All Models}
+\begin{tabular}[t]{lllll}
+\toprule
+penalty & .estimate & alg & hidden units & neighbors\\
+\midrule
+0.00 & 0.85 & logit &  & \\
+0.00 & 0.87 & tree &  & \\
+1.00 & 0.83 & nnet & 1.00 & \\
+ & 0.84 & kknn &  & 30.00\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\end{document}
