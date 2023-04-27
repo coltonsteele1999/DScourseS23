@@ -1,0 +1,42 @@
+@article{greenwade93,
+    author  = "George D. Greenwade",
+    title   = "The {C}omprehensive {T}ex {A}rchive {N}etwork ({CTAN})",
+    year    = "1993",
+    journal = "TUGBoat",
+    volume  = "14",
+    number  = "3",
+    pages   = "342--351"
+}
+
+@article{silver2014nbaelo,
+  title={How We Calculate NBA Elo Ratings},
+  author={Silver, Nate},
+  year={2015},
+  journal={FiveThirtyEight},
+  url={https://fivethirtyeight.com/features/how-we-calculate-nba-elo-ratings/}
+}
+
+@article{extrainningsb,
+  title = {TV numbers: Women’s College World Series ratings set new highs},
+  author = {Eads, Brentt},
+  year = {2022},
+  month = {June 16},
+  url = {https://extrainningsoftball.com/tv-numbers-womens-college-world-series-ratings-set-new-highs/},
+  journal = {Extra Inning Softball},
+}
+
+@article{baseballprospectus,
+  title = {Lies, Damned Lies: We Are Elo},
+  author = {Silver, Nate},
+  year = {2006},
+  url = {https://www.baseballprospectus.com/news/article/5247/lies-damned-lies-we-are-elo/},
+  journal = {Baseball Prospectus},
+}
+
+@online{sportsrec,
+  title = {How Is the RPI Calculated?},
+  author = {Wozniak, Steve},
+  year = {2023},
+  url = {https://www.sportsrec.com/rpi-calculated-5143295.html},
+  organization = {SportsRec},
+}

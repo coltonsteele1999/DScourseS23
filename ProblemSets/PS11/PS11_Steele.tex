@@ -1,0 +1,112 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+\usepackage[round]{natbib}
+\usepackage{siunitx}
+\usepackage{setspace}
+\doublespacing
+
+
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{float}
+\title{PS10}
+\author{Colton Steele}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{6cm}
+    \textbf{\LARGE Creating an Elo Rating System for College Softball}\\
+    \textbf{\large by}\\
+    \textbf{\Large Colton Steele}\\
+    \vspace{1cm}
+    \textbf{\large University of Oklahoma}\\
+    \textbf{\large \today}\\
+\end{titlepage}
+
+
+\section{\textbf{Introduction}}
+In the world of sports, it is a common debate about who is the better team throughout a season. A person could cite many different statistics to support their argument, but not all statistics are relevant to a team’s probability to win. Now, with the legalization of sports betting, win probability and other advanced statistics have entered the common discourse to a higher degree; however, betting and these statistics are not available for every sport. One sport in particular that is growing in popularity is college softball. The 2022 Women’s College World Series averaged 1 million viewers per game becoming the third straight year in which this occurred\citet{extrainningsb}.displaying that there is a large fanbase and appetite for college softball, at least during the postseason. With that in mind, I have created an elo rating system for college softball trained on the 2019, 2020, and 2021 seasons along with the 2022 regular season to predict which teams would make the WCWS and win it all. 
+\begin{itemize}
+    \item Further explanation of the elo system
+    \item Discussion of the relevance (betting and postseason qualification/hosting of regionals)
+\end{itemize}
+
+\section{\textbf{Literature Review}}
+\indent The purpose of this paper is to establish an elo rating system for college softball with the goal of predicting results of college softball games. Multiple rating systems already exist, most prominent being RPI which is calculated using the given team’s winning percentage, their opponent’s average winning percentage, and their opponent’s opponent’s average winning percentage (Wozniack, 2023). Other more obvious factors such as win-loss record and series wins are also used when comparing teams to each other. \\
+\indent In this paper, I propose an elo rating system for college softball. The elo rating system, originally created by Arpad Elo, was created to compare chess players to one another but has been adapted to sports and other competitive events \citet{greenwade93}. 
+\begin{itemize}
+    \item Struggled to find a ton of research, will continue digging and find more
+\end{itemize}
+
+\section{\textbf{Data}}
+	The primary data for this research will be scraped from the NCAA Softball website using the SoftballR package. The dataset will consist of all games at the Division 1 level from the 2019-2022 seasons, excluding the 2022 postseason which we will attempt to predict using our rating system. The below table contains the variables in my dataset
+
+\begin{table}[ht]
+\centering
+\caption{Variables}
+\begin{tabular}[t]{lll}
+\toprule
+Name & Description\\
+\midrule
+away\textunderscore team & Away team for a given game\\
+\midrule
+home\textunderscore team & Home team for a given game\\
+\midrule
+away\textunderscore team\textunderscore runs & Runs scored by the away team\\
+\midrule
+home\textunderscore team\textunderscore runs & Runs scored by the home team\\
+\midrule
+home\textunderscore sos & Strength of schedule for the home team, opponent avg winning \%\\
+\midrule
+home\textunderscore prob & Probability that the home team will win a given game.\\
+\midrule
+actual\textunderscore prob & Determines who won the game, 1 if home team, 0 if away team\\
+\midrule
+rating & The elo rating for the associated team\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{\textbf{Methods}}
+To create an elo rating system, we must first set an initial value for all teams in our set which I have chosen as 1500, the standard average value. Additionally, we must set the K factor, which “determines how quickly the rating reacts to new game results” \citet{silver2014nbaelo} which we have chosen to be 10 based on Silver and Fischer-Baum using 20 for NBA and Silver using 4 for baseball games \cite{baseballprospectus}. Given the number of games in college softball, the number of 10 is an ideal value. 
+I have chosen 10 for now, but I plan to try and determine the optimal K factor by maximizing the accuracy of my system
+	Once we have our initial values determined and K-factor set, we adjust teams ratings after each game occurs. The basic equation is:\\
+\\New Elo Rating = Old Rating + Rating Change\\
+
+In this setting, the rating change will be positive for the winner, and negative for the loser. In our system, we account for strength of schedule to favor teams who play tougher schedules and win their games. The formula for calculating our rating change is as follows:\\
+\\Rating Change = $K \cdot ((\text{actual\_prob}-\text{home\_prob}) + (\text{home\_wins}-\text{home\_losses})/20)$
+\\
+\\This is about where I am at with my system, I am still ironing out some kinks and want to implement the following
+\begin{itemize}
+    \item Home field advantage
+    \item New season adjustment
+    \item Margin of victory adjustment
+\end{itemize}
+
+\section{\textbf{Research Findings}}
+	Once I finalized my system, I want to compare the accuracy of my model to the RPI system that the NCAA uses. This section will have the following components
+ \begin{itemize}
+    \item Accuracy statistics for both my system and NCAA’s RPI for the 2022 postseason
+    \item Optimal K value
+    \item How my model has fared so far in the 2023 season
+\end{itemize}
+\section{\textbf{Conclusion}}
+	With the growth of the sports betting industry, it is not inconceivable that betting on college softball will likely be here before we know it. With this possibility on the horizon, being able to create models that are able to predict the results of these games. Thus, in this research, I have attempted to create a rating system that will have predictive value in evaluating college softball games. Further research can expand upon what I have done here by including things such as variable effects for winning streaks or losing streaks. Additionally, accounting for the time of the year by adjusting the K factor depending on the time is another possibility especially as teams often get “hot” towards the end of the season and would theoretically “overperform” in my system. 
+
+\bibliography{sample.bib}
+
+\end{document}
+
